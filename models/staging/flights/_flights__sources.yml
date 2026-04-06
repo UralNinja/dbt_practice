@@ -33,3 +33,21 @@ sources:
             description: Номер посадочного места
           - name: "fare_conditions"
             description: Класс комфорта
+      - name: bookings
+        description: Посадочные места
+        columns:
+          - name: book_ref
+            description: Неизвестное поле
+          - name: book_date
+            description: Дата бронирования
+          - name: total_amount
+            description: Сумма
+        freshness:
+          warn_after:
+            count: 60000000
+            period: hour
+          error_after:
+            count: 10000000
+            period: day
+          filter: current_timestamp::date - book_date::date < 300000000000
+        loaded_at_field: book_date::timestamp
