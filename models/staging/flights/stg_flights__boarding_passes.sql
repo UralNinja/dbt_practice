@@ -1,6 +1,6 @@
 {{
   config(
-    materialized = 'table',
+    materialized = 'table'
     )
 }}
 Select
@@ -9,4 +9,4 @@ ticket_no
 ,boarding_no
 ,seat_no
 From
-{{ source('source', 'boarding_passes') }}
+{{ source('demo_src', 'boarding_passes') }}

@@ -15,4 +15,4 @@ flight_id
 ,actual_departure
 ,actual_arrival
 FROM
-{{ source('demo_src', 'flights') }}
+{{ ref('stg_flights__flights') }}
